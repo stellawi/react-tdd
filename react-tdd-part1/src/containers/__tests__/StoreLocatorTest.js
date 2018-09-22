@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import StoreLocator from '../StoreLocator';
 import axios from 'axios';
+import renderer from 'react-test-renderer';
 
 describe('StoreLocator', () => {
   let mountedStore;
@@ -13,6 +14,12 @@ describe('StoreLocator', () => {
     await mountedStore.instance().componentDidMount();
     expect(axios.get).toHaveBeenCalled();
   });
+
+  it('should render correctly', () => {
+    const tree = renderer.create(<StoreLocator />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
   it('called axios.get with correct url', async () => {
     await mountedStore.instance().componentDidMount();
     expect(axios.get).toHaveBeenCalledWith('http://localhost:3000/data/shops.json');

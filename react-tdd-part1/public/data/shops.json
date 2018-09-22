@@ -1,0 +1,16 @@
+{
+  "shops": [
+    {
+      "location": "Astoria",
+      "address": "Astoria 10 Drive"
+    },
+    {
+      "location": "Portland",
+      "address": "Portland 10 Drive"
+    },
+    {
+      "location": "",
+      "address": ""
+    }
+  ]
+}

@@ -3,7 +3,7 @@ import Header from '../components/Header';
 import Button from '../components/Button';
 import Map from '../components/Map';
 import mapChooser from '../mapChooser';
-import axios from 'axios';
+import Api from '../services/Api';
 
 class StoreLocator extends React.Component {
   constructor(props) {
@@ -15,7 +15,7 @@ class StoreLocator extends React.Component {
   }
 
   async componentDidMount() {
-    const response = await axios.get('http://localhost:3000/data/shops.json');
+    const response = await Api.getAllShops();
     this.setState({ shops: response.data.shops });
   }
 
